@@ -34,6 +34,12 @@ public class MeshBuilderWithColorGUIController : MonoBehaviour
     private TangoApplication m_tangoApplication;
     private TangoDynamicMesh m_dynamicMesh;
 
+	public Texture pause;
+	public Texture resume;
+	public Texture clear;
+	public Texture save;
+	public GUIStyle material;
+
     /// <summary>
     /// Start is used to initialize.
     /// </summary>
@@ -59,7 +65,7 @@ public class MeshBuilderWithColorGUIController : MonoBehaviour
     /// </summary>
     public void OnGUI()
     {
-        GUI.color = Color.white;
+        /*GUI.color = Color.white;
         if (GUI.Button(new Rect(Screen.width - 160, 20, 140, 80), "<size=30>Clear</size>"))
         {
             m_dynamicMesh.Clear();
@@ -71,6 +77,26 @@ public class MeshBuilderWithColorGUIController : MonoBehaviour
         {
             m_isEnabled = !m_isEnabled;
             m_tangoApplication.Set3DReconstructionEnabled(m_isEnabled);
-        }
+        }*/
+
+		if (GUI.Button(new Rect(60, Screen.height - 200, 140, 140), clear, material))
+		{
+			m_dynamicMesh.Clear();
+			m_tangoApplication.Tango3DRClear();
+		}
+
+		Texture text = m_isEnabled ? pause : resume;
+		if (GUI.Button(new Rect(Screen.width - 200, Screen.height - 200, 140, 140), text, material))
+		{
+			m_isEnabled = !m_isEnabled;
+			m_tangoApplication.Set3DReconstructionEnabled(m_isEnabled);
+		}
+
+		if (!m_isEnabled) {
+			if (GUI.Button(new Rect(Screen.width - 400, Screen.height - 200, 140, 140), save, material))
+			{
+				//save stuff here
+			}
+		}
     }
 }
