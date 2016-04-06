@@ -32,6 +32,12 @@ using UnityEngine.Rendering;
 /// </summary>
 public class TangoDynamicMesh : MonoBehaviour, ITango3DReconstruction
 {
+
+    //public Mesh totalMesh = null;
+    public GameObject StartPoint;
+    public GameObject EndPoint;
+
+
     /// <summary>
     /// If set, debugging info is displayed.
     /// </summary>

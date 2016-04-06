@@ -123,6 +123,8 @@ namespace Tango
         private TangoConfig m_tangoConfig;
         private TangoConfig m_tangoRuntimeConfig;
 
+        
+
         /// <summary>
         /// Occurs when permission event.
         /// </summary>
